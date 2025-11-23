@@ -118,8 +118,6 @@ int main(int argc, char* argv[]) {
                     std::cerr << RED << "Failed to add " << entry.path().filename().string() << " to library." << RESET << "\n";
                     return 1;
                 }
-                fs::remove(entry.path());
-                
                 std::cout << GREEN << " added" << RESET << "\n";
                 libUpdated = true;
             }
