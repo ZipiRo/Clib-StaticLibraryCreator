@@ -17,7 +17,7 @@ const std::string RESET   = "\033[0m";
 const std::string ITALIC  = "\033[3m";
 
 // File to store last compilation info
-const std::string SIZE_FILE = ".last_sizes.txt";
+const std::string SIZE_FILE = "/.last_sizes.txt";
 
 struct FileInfo {
     uintmax_t cppSize = 0;
@@ -37,7 +37,8 @@ int main(int argc, char* argv[]) {
 
     // Load previous info
     std::unordered_map<std::string, FileInfo> lastInfo;
-    std::ifstream inFile(SIZE_FILE);
+    std::string source_filepath_sizefile = argv[1] + SIZE_FILE;
+    std::ifstream inFile(source_filepath_sizefile);
     if (inFile.is_open()) {
         std::string file;
         uintmax_t cppSize, objTime;
@@ -141,7 +142,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Save new compilation info
-    std::ofstream outFile(SIZE_FILE);
+    std::ofstream outFile(source_filepath_sizefile);
     for (const auto& [file, info] : newInfo) {
         outFile << file << " " << info.cppSize << " " << info.objTime << "\n";
     }
