@@ -1,6 +1,6 @@
 # Incremental C++ Static Library Builder
 
-This is a simple C++ program that performs **incremental compilation** of `.cpp` files in a source directory and builds a static library (`.a`). It only recompiles files that have changed since the last build, reducing unnecessary compilation time.  
+This is a simple C++ program that performs **incremental compilation** of `.cpp` files in a source directory and builds a static library (`.a`). It only recompiles files that have changed since the last build, reducing unnecessary compilation time. This was made by me in batch file then give to AI to implement it in C++. The AI made the implemetation and the if changed file creation.
 
 ---
 
